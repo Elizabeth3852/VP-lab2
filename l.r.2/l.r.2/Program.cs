@@ -172,13 +172,14 @@ namespace l.r._2
             vokzal[0].ShowInfo();
             vokzal[1].ShowInfo();
             vokzal[2].ShowInfo();
+            vokzal[3].ShowInfo();
             vokzal.ShowLastTime();
             vokzal.ShowNameStation();
             Console.ReadKey();
         }
     }
 
-    class Vokzal      //КЛАСС ВОКЗАЛ
+    class Vokzal      //класс вокзал
     {
         List<Poezd> Poezda = new List<Poezd>();     //объявление коллекции поездов
 
@@ -247,6 +248,6 @@ namespace l.r._2
             if (num == 0)
                 Console.WriteLine("В заданный пункт назначения поезда не ходят!");
         }
+       
     }
-} 
- 
+}
