@@ -173,7 +173,7 @@ namespace l.r._2
             vokzal[1].ShowInfo();
             vokzal[2].ShowInfo();
             vokzal.ShowLastTime();
-            vokzal.ShowEndPunct();
+            vokzal.ShowNameStation();
             Console.ReadKey();
         }
     }
@@ -217,12 +217,36 @@ namespace l.r._2
             }
 
             Console.Write("Введите конечный пункт назначения: ");
-            string EndPunct = Console.ReadLine();
-            Poezd poezd = new Poezd(EndPunct, namber);
+            string NameStation = Console.ReadLine();
+            Poezd poezd = new Poezd(NameStation, namber);
             Poezda.Add(poezd);
             Poezda.Sort();
         }
+         public void ShowLastTime()  //метод для вывода информации поездов отправляемых после заданного времени
+        {
+            Console.Write("Введите время для сравнения: ");
+            Poezd p1 = new Poezd("null", 1);
+            for (int i = 0; i < Poezda.Count; i++)
+                if (p1 < this[i])
+                    this[i].ShowInfo();
+        }
 
-    } 
-    
-}   
+         public void ShowNameStation() //метод для вывода ин-ии о поездах, отправляющихся в заданный пункт назначения
+        {
+            Console.Write("Введите пункт назначения: ");
+            string punkt = Console.ReadLine();
+            int num=0;
+            for (int i = 0; i < Poezda.Count; i++)
+            {
+                if (Poezda[i].NameStation == punkt)
+                {
+                    Console.WriteLine(Poezda[i]);
+                    num++;
+                }
+            }
+            if (num == 0)
+                Console.WriteLine("В заданный пункт назначения поезда не ходят!");
+        }
+    }
+} 
+ 
